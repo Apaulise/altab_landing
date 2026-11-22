@@ -3,7 +3,7 @@ import Lines from "./Lines";
 
 export default function FinalCta() {
   return (
-    <section className="section" style={{ paddingTop: "clamp(110px,15vw,210px)", paddingBottom: "clamp(110px,15vw,210px)" }}>
+    <section className="section landing-cta">
       <div className="wrap" style={{ maxWidth: 840, textAlign: "center" }}>
         <div
           data-reveal="fade"

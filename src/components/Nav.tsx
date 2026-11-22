@@ -71,11 +71,9 @@ export default function Nav() {
   return (
     <nav className={scrolled || open ? "nav nav-on" : "nav"}>
       <div className="nav-inner">
-        <a href="#top" className="brand" aria-label="SmokIA, inicio">
-          <Image src="/smokia-mark.png" alt="" width={21} height={21} priority style={{ objectFit: "contain" }} />
-          <span>
-            Smok<span className="dim">IA</span>
-          </span>
+        <a href="#top" className="brand" aria-label="ALTAB, inicio">
+          <Image src="/altab-simbolo-metal.svg" alt="" width={42} height={27} priority style={{ objectFit: "contain" }} />
+          <span className="altab-wordmark"><strong>ALTAB</strong><small>AI CONSULTING</small></span>
         </a>
 
         <div className="nav-links">

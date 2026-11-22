@@ -1,4 +1,5 @@
 import Lines from "./Lines";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const STEPS = [
   {
@@ -39,14 +40,13 @@ export default function HowWeWork() {
           </p>
         </div>
 
-        {/* Tres pasos separados por hairlines, sin cajas. */}
         <div className="steps" data-stagger="90">
           {STEPS.map((s) => (
-            <div className="step" data-reveal key={s.n}>
+            <GlowCard className="step" customSize data-reveal key={s.n}>
               <span className="step-n">{s.n}</span>
               <h3 className="h3" style={{ marginBottom: 12 }}>{s.t}</h3>
               <p className="small">{s.d}</p>
-            </div>
+            </GlowCard>
           ))}
         </div>
 

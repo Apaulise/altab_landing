@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const SRC = "/video/showreel.mp4";
 const POSTER = "/video/showreel-poster.jpg";
@@ -51,10 +52,18 @@ export default function HeroShowreel() {
         type="button"
         className="showreel"
         onClick={openFull}
-        aria-label="Ver el showreel de SmokIA con sonido (15 segundos)"
+        aria-label="Ver el showreel de ALTAB con sonido (15 segundos)"
         data-cta="showreel_open"
       >
-        <span className="showreel-glow" aria-hidden="true" />
+        <Image
+          className="showreel-art"
+          src="/cintas-altab.webp"
+          alt=""
+          fill
+          sizes="(max-width: 900px) 94vw, 52vw"
+          preload
+        />
+        <span className="showreel-sweep" aria-hidden="true" />
         <video
           ref={inline}
           className="showreel-video"

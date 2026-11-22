@@ -116,7 +116,7 @@ export default function Contact() {
         {/* El formulario sí es un bloque independiente: card con el radio máximo. */}
         <div
           data-reveal="media"
-          style={{ padding: "clamp(24px,3.4vw,40px)", borderRadius: "var(--radius-lg)", border: "1px solid var(--line-strong)", background: "#1b1b1ee0", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+          className="contact-card"
         >
           {status === "sent" ? (
             <div role="status" style={{ padding: "40px 8px", textAlign: "center" }}>

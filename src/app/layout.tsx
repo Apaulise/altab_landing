@@ -19,14 +19,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SmokIA — Tu negocio puede funcionar mejor",
+  title: "ALTAB — Tu negocio puede funcionar mejor",
   description:
     "Analizamos cómo funciona tu empresa, detectamos procesos que pueden mejorar y construimos soluciones con Inteligencia Artificial, automatización y software.",
-  icons: { icon: "/smokia-mark.png" },
+  icons: { icon: "/altab-favicon.svg" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#131315",
+  themeColor: "#202124",
   colorScheme: "dark",
 };
 

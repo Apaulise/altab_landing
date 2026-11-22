@@ -22,17 +22,17 @@ const STATS: { k: string; v: string }[] = [
 
 export default function Stage() {
   return (
-    <section className="section" style={{ paddingTop: 0 }}>
-      <div className="wrap" style={{ maxWidth: 720 }}>
+    <section className="section landing-flow">
+      <div className="wrap">
         <div
           data-reveal="media"
-          style={{ paddingTop: "clamp(28px,4vw,40px)", borderTop: "1px solid var(--line)" }}
+          className="flow-board"
         >
           {/* Encabezado de la figura */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: "clamp(26px,3.5vw,38px)" }}>
+          <div className="flow-board-header" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: "clamp(26px,3.5vw,38px)" }}>
             <span className="mono" style={{ display: "inline-flex", alignItems: "center", gap: 9, fontSize: 11.5, letterSpacing: ".06em", color: "var(--ink-2)" }}>
               <span style={{ width: 5, height: 5, borderRadius: "var(--radius-full)", background: "var(--smoke-4)" }} />
-              SmokIA · Intelligence Layer
+              ALTAB · Intelligence Layer
             </span>
             <span className="mono" style={{ fontSize: 10, letterSpacing: ".12em", padding: "4px 9px", borderRadius: "var(--radius-xs)", border: "1px solid var(--line-strong)", color: "var(--ink-3)" }}>
               EJEMPLO ILUSTRATIVO
@@ -77,6 +77,7 @@ export default function Stage() {
 
           {/* Los números, en mono con cifras tabulares (regla del sistema). */}
           <div
+            className="flow-stats"
             style={{
               marginTop: "clamp(28px,3.5vw,40px)",
               paddingTop: "clamp(22px,3vw,28px)",

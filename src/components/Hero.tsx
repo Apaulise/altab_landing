@@ -13,18 +13,11 @@ export default function Hero() {
   return (
     <header
       id="top"
-      className="section"
-      style={{
-        minHeight: "100svh",
-        display: "flex",
-        alignItems: "center",
-        paddingTop: "clamp(128px,18vh,190px)",
-        paddingBottom: "clamp(72px,10vh,120px)",
-      }}
+      className="section landing-hero"
     >
       <div className="wrap" style={{ width: "100%" }}>
         <div className="hero-grid">
-        <div style={{ maxWidth: "min(800px, 94%)" }}>
+        <div className="hero-copy">
           <div data-reveal="fade" className="eyebrow" style={{ marginBottom: "clamp(24px,3vw,34px)" }}>
             AI · Automatización · Software
           </div>

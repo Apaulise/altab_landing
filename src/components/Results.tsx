@@ -22,7 +22,7 @@ export default function Results() {
   if (!links.showResults) return null;
 
   return (
-    <section className="section">
+    <section className="section landing-results">
       <div className="wrap">
         <div style={{ maxWidth: 900, marginBottom: "clamp(52px,7vw,84px)" }}>
           <div data-reveal="fade" className="eyebrow" style={{ marginBottom: 26 }}>
@@ -56,7 +56,7 @@ export default function Results() {
               y barbero— y clasifica automáticamente a cada cliente según su comportamiento real: nuevo, activo,
               próximo a regresar o en riesgo de perderse.
             </p>
-            <p className="small" style={{ color: "var(--ink)" }}>
+            <p className="small case-result" style={{ color: "var(--ink)" }}>
               El resultado: <span className="mono" style={{ color: "var(--signal-text)", fontWeight: 500 }}>92%</span>{" "}
               de las visitas quedan identificadas con ficha de cliente (vs. registro nulo antes), con seguimiento
               automático de tasa de recurrencia, facturación por medio de pago y horarios pico. Hoy TH Barbershop

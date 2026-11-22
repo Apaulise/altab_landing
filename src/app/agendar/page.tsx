@@ -4,8 +4,8 @@ import CalEmbed from "@/components/CalEmbed";
 import ParticleField from "@/components/ParticleField3D";
 
 export const metadata: Metadata = {
-  title: "Agendar llamada — SmokIA",
-  description: "Elegí día y horario para una llamada de diagnóstico sin compromiso con SmokIA.",
+  title: "Agendar llamada — ALTAB",
+  description: "Elegí día y horario para una llamada de diagnóstico sin compromiso con ALTAB.",
 };
 
 export default function AgendarPage() {
@@ -17,12 +17,10 @@ export default function AgendarPage() {
       <main className="page" style={{ minHeight: "100vh", padding: "clamp(22px,3vw,34px) var(--page-pad) 72px" }}>
         <div className="wrap" style={{ maxWidth: 1080 }}>
           <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, marginBottom: "clamp(40px,6vw,72px)" }}>
-            <a href="/" className="brand" aria-label="SmokIA, inicio">
+            <a href="/" className="brand" aria-label="ALTAB, inicio">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/smokia-mark.png" alt="" width={21} height={21} style={{ objectFit: "contain" }} />
-              <span>
-                Smok<span className="dim">IA</span>
-              </span>
+              <img src="/altab-simbolo-metal.svg" alt="" width={42} height={27} style={{ objectFit: "contain" }} />
+              <span className="altab-wordmark"><strong>ALTAB</strong><small>AI CONSULTING</small></span>
             </a>
             <a className="foot-link" href="/" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontWeight: 500 }}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

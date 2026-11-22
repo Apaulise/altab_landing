@@ -8,10 +8,10 @@
 
 :root{
   /* --- Tokens del sistema (tokens.json · tema oscuro) ---------------------- */
-  --bg:#131315;--surface:#1b1b1e;--raised:#242428;--overlay:#2d2d32;
+  --bg:#202124;--surface:#292a2c;--raised:#313235;--overlay:#3a3b3e;
   --line:#ffffff14;--line-strong:#ffffff29;
-  --ink:#eceae5;--ink-2:#a3a19c;--ink-3:#908e89;
-  --signal:#f2c14e;--signal-hover:#f6cf6e;--signal-soft:#f2c14e1f;--signal-text:#f2c14e;--on-signal:#151515;
+  --ink:#fff0ce;--ink-2:#c5c3bc;--ink-3:#aaa9a3;
+  --signal:#f3d38c;--signal-hover:#ffe2a5;--signal-soft:#f3d38c1f;--signal-text:#f3d38c;--on-signal:#202124;
   --success:#8fb39a;--success-soft:#8fb39a1f;
   --danger:#e0907f;--danger-soft:#e0907f1f;
   --info:#98a9bd;
@@ -614,3 +614,5 @@ textarea.input{resize:vertical;min-height:104px}
   position:fixed;inset:0;width:100%;height:100%;
   z-index:0;pointer-events:none;display:block;
 }
+
+.altab-wordmark{display:inline-flex;flex-direction:column;line-height:1;gap:3px}.altab-wordmark strong{font-size:19px;letter-spacing:-.04em}.altab-wordmark small{font-size:6px;letter-spacing:.18em;font-weight:600;white-space:nowrap}

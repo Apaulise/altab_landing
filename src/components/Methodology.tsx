@@ -54,7 +54,7 @@ export default function Methodology() {
   return (
     <section id="metodologia" className="section">
       <div className="wrap-narrow">
-        <div style={{ marginBottom: "clamp(52px,7vw,88px)" }}>
+        <div className="method-heading">
           <div data-reveal="fade" className="eyebrow" style={{ marginBottom: 26 }}>
             Metodología
           </div>

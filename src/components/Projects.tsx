@@ -1,5 +1,6 @@
 import { links } from "@/config";
 import Lines from "./Lines";
+import { GlowCard } from "@/components/ui/spotlight-card";
 
 const Arrow = ({ s = 15 }: { s?: number }) => (
   <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -77,7 +78,7 @@ function WhatsAppDemo() {
           </svg>
         </span>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Asistente SmokIA</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Asistente ALTAB</div>
           <div style={{ fontSize: 10, color: "rgba(255,255,255,.75)" }}>en línea</div>
         </div>
       </div>
@@ -223,8 +224,8 @@ export default function Projects() {
           </p>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "clamp(72px,10vw,140px)" }}>
-          <article className="zig" data-reveal>
+        <div className="project-gallery">
+          <GlowCard as="article" className="zig" customSize data-reveal>
             <Copy
               tag="CONCEPT"
               idx="01 / Auditoría"
@@ -233,9 +234,9 @@ export default function Projects() {
               solution="un sistema que analiza digitalmente un negocio y prioriza dónde la tecnología genera más impacto."
             />
             <div data-reveal="media"><AuditPanel /></div>
-          </article>
+          </GlowCard>
 
-          <article className="zig zig-rev" data-reveal>
+          <GlowCard as="article" className="zig zig-rev" glowColor="silver" customSize data-reveal>
             <div data-reveal="media"><WhatsAppDemo /></div>
             <Copy
               tag="DEMO"
@@ -244,9 +245,9 @@ export default function Projects() {
               problem="se responden las mismas consultas todos los días y se pierden oportunidades."
               solution="un asistente que responde, clasifica consultas y ejecuta acciones directamente por WhatsApp."
             />
-          </article>
+          </GlowCard>
 
-          <article className="zig" data-reveal>
+          <GlowCard as="article" className="zig" customSize data-reveal>
             <Copy
               tag="PROTOTYPE"
               idx="03 / Clientes"
@@ -255,11 +256,11 @@ export default function Projects() {
               solution="registra clientes, analiza recurrencia, detecta inactivos y facilita seguimientos personalizados."
             />
             <div data-reveal="media"><ClientsPanel /></div>
-          </article>
+          </GlowCard>
 
           {/* Los dos conceptos restantes, en pareja. */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "clamp(40px,6vw,72px)" }} data-stagger="110">
-            <article data-reveal>
+          <div className="project-pair" data-stagger="110">
+            <GlowCard as="article" glowColor="silver" customSize data-reveal>
               <SiteAuditPanel />
               <div style={{ marginTop: 26 }}>
                 <div className="tagrow">
@@ -275,9 +276,9 @@ export default function Projects() {
                   <Arrow />
                 </a>
               </div>
-            </article>
+            </GlowCard>
 
-            <article data-reveal>
+            <GlowCard as="article" customSize data-reveal>
               <ChannelPanel />
               <div style={{ marginTop: 26 }}>
                 <div className="tagrow">
@@ -293,7 +294,7 @@ export default function Projects() {
                   <Arrow />
                 </a>
               </div>
-            </article>
+            </GlowCard>
           </div>
         </div>
       </div>

@@ -14,8 +14,8 @@ export default function Footer() {
         <div style={{ maxWidth: 300 }}>
           <div className="brand" style={{ marginBottom: 14 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/smokia-mark.png" alt="" width={20} height={20} style={{ objectFit: "contain" }} />
-            Smok<span className="dim">IA</span>
+            <img src="/altab-simbolo-metal.svg" alt="" width={42} height={27} style={{ objectFit: "contain" }} />
+            <span className="altab-wordmark"><strong>ALTAB</strong><small>AI CONSULTING</small></span>
           </div>
           <p className="small" style={{ color: "var(--ink-3)", marginBottom: 22 }}>
             Soluciones de IA construidas alrededor de negocios reales.
@@ -44,7 +44,7 @@ export default function Footer() {
       </div>
 
       <div className="wrap" style={{ marginTop: 44, paddingTop: 26, borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between", alignItems: "center" }}>
-        <span className="mono" style={{ fontSize: 11.5, color: "var(--ink-3)" }}>© 2026 SmokIA · Argentina</span>
+        <span className="mono" style={{ fontSize: 11.5, color: "var(--ink-3)" }}>© 2026 ALTAB · Argentina</span>
         <span className="mono" style={{ fontSize: 11.5, color: "var(--ink-3)" }}>Primero el problema. Después la tecnología.</span>
       </div>
     </footer>

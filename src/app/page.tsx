@@ -9,12 +9,10 @@ import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ParticleField from "@/components/ParticleField3D";
-import CinematicStage from "@/components/CinematicStage";
 import RevealProvider from "@/components/RevealProvider";
-import Tilt3D from "@/components/Tilt3D";
 import ScrollProgress from "@/components/ScrollProgress";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import "./landing.css";
 
 export default function Page() {
   return (
@@ -22,11 +20,9 @@ export default function Page() {
       {/* El campo de partículas es el escenario: vive detrás de toda la página
           y cambia de forma con el scroll (ondas → dispersión → grilla →
           embudo → barras → convergencia). */}
-      <CinematicStage />
-      <ParticleField atmosphere={false} />
       <ScrollProgress />
 
-      <div className="page">
+      <div className="page altab-landing">
         <Nav />
         <main>
           <Hero />
@@ -43,7 +39,6 @@ export default function Page() {
       </div>
 
       <RevealProvider />
-      <Tilt3D />
       <WhatsAppFloat />
     </>
   );

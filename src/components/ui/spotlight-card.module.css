@@ -1,0 +1,48 @@
+.card {
+  position: relative;
+  isolation: isolate;
+  --spotlight-color: var(--spotlight-gold, #f3d38c);
+}
+
+.card[data-spotlight="silver"] {
+  --spotlight-color: var(--spotlight-silver, #b9b8b3);
+}
+
+@media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 240ms ease-out;
+  }
+
+  .card::before {
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+      14rem circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+      color-mix(in srgb, var(--spotlight-color) 21%, transparent),
+      transparent
+    );
+  }
+
+  .card::after {
+    inset: -1px;
+    padding: 1px;
+    background: radial-gradient(
+      10rem circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+      var(--spotlight-color),
+      transparent
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  .card[data-spotlight-active]::before,
+  .card[data-spotlight-active]::after {
+    opacity: 1;
+  }
+}
