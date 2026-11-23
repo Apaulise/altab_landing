@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { siteDescription, siteTitle, siteUrl } from "./site-metadata";
 import "./globals.css";
 
 // Las dos familias del sistema de diseño: Hanken Grotesk para interfaz,
@@ -19,9 +20,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ALTAB — Tu negocio puede funcionar mejor",
-  description:
-    "Analizamos cómo funciona tu empresa, detectamos procesos que pueden mejorar y construimos soluciones con Inteligencia Artificial, automatización y software.",
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  title: siteTitle,
+  description: siteDescription,
+  robots: process.env.VERCEL_ENV === "preview" ? { index: false, follow: false } : undefined,
   icons: { icon: "/altab-favicon.svg" },
 };
 
@@ -32,7 +34,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${hanken.variable} ${jetbrainsMono.variable}`}>
+    <html lang="es-AR" className={`${hanken.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );

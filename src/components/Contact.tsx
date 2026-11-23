@@ -68,7 +68,7 @@ export default function Contact() {
     fieldErrors[k] && setFieldErrors((f) => ({ ...f, [k]: undefined }));
 
   return (
-    <section id="contacto" className="section">
+    <section className="section">
       <div
         className="wrap"
         style={{ display: "grid", gridTemplateColumns: "minmax(0,.95fr) minmax(0,1.05fr)", gap: "clamp(44px,6vw,88px)", alignItems: "start" }}

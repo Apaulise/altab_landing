@@ -1,5 +1,4 @@
 import { links } from "@/config";
-import Lines from "./Lines";
 import HeroShowreel from "./HeroShowreel";
 
 const Arrow = ({ s = 17 }: { s?: number }) => (
@@ -12,35 +11,26 @@ const Arrow = ({ s = 17 }: { s?: number }) => (
 export default function Hero() {
   return (
     <header
-      id="top"
       className="section landing-hero"
     >
       <div className="wrap" style={{ width: "100%" }}>
         <div className="hero-grid">
         <div className="hero-copy">
-          <div data-reveal="fade" className="eyebrow" style={{ marginBottom: "clamp(24px,3vw,34px)" }}>
+          <div className="eyebrow" style={{ marginBottom: "clamp(24px,3vw,34px)" }}>
             AI · Automatización · Software
           </div>
 
-          <Lines
-            as="h1"
-            className="display"
-            delay={60}
-            lines={[
-              "Tu negocio puede",
-              "funcionar mejor.",
-              <span key="3" className="dim">Encontramos cómo.</span>,
-            ]}
-          />
+          <h1 className="display">
+            Tu negocio puede<br /> funcionar mejor.<br /> <span className="dim">Encontramos cómo.</span>
+          </h1>
 
-          <p data-reveal className="lead" style={{ margin: "clamp(26px,3vw,36px) 0 0", maxWidth: 520, ["--rd" as string]: "320ms" }}>
+          <p className="lead" style={{ margin: "clamp(26px,3vw,36px) 0 0", maxWidth: 520 }}>
             Analizamos cómo funciona tu empresa, detectamos procesos que pueden mejorar y construimos
             soluciones usando Inteligencia Artificial, automatización y software.
           </p>
 
           <div
-            data-reveal
-            style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", marginTop: "clamp(30px,3.5vw,42px)", ["--rd" as string]: "400ms" }}
+            style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", marginTop: "clamp(30px,3.5vw,42px)" }}
           >
             <a className="btn btn-primary btn-lg" href={links.cta} data-cta="hero_cta">
               Analicemos tu negocio
@@ -52,9 +42,8 @@ export default function Hero() {
           </div>
 
           <p
-            data-reveal
             className="mono"
-            style={{ margin: "clamp(24px,3vw,32px) 0 0", fontSize: 12, letterSpacing: ".04em", color: "var(--ink-3)", display: "flex", alignItems: "center", gap: 9, ["--rd" as string]: "480ms" }}
+            style={{ margin: "clamp(24px,3vw,32px) 0 0", fontSize: 12, letterSpacing: ".04em", color: "var(--ink-3)", display: "flex", alignItems: "center", gap: 9 }}
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
@@ -63,9 +52,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div data-reveal="fade" style={{ ["--rd" as string]: "300ms" }}>
-          <HeroShowreel />
-        </div>
+        <HeroShowreel />
         </div>
       </div>
 

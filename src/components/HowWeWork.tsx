@@ -23,7 +23,7 @@ const CHAIN = ["Negocio", "Oportunidad", "Tecnología", "Impacto"];
 
 export default function HowWeWork() {
   return (
-    <section id="soluciones" className="section">
+    <section className="section">
       <div className="wrap">
         <div style={{ maxWidth: 900, marginBottom: "clamp(56px,7vw,92px)" }}>
           <div data-reveal="fade" className="eyebrow" style={{ marginBottom: 26 }}>

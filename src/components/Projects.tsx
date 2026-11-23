@@ -212,7 +212,7 @@ function ChannelPanel() {
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="section">
+    <section className="section">
       <div className="wrap">
         <div style={{ maxWidth: 900, marginBottom: "clamp(60px,8vw,104px)" }}>
           <div data-reveal="fade" className="eyebrow" style={{ marginBottom: 26 }}>

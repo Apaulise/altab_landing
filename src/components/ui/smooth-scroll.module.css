@@ -1,0 +1,32 @@
+@media (prefers-reduced-motion: no-preference) {
+  :global(body):has([data-scroll-motion="on"]) {
+    overflow-x: clip;
+  }
+
+  [data-scroll-motion="on"] > .panel {
+    --scroll-panel-overlap: clamp(44px, 12svh, 112px);
+    display: flow-root;
+    isolation: isolate;
+  }
+
+  [data-scroll-motion="on"] > .panel[data-panel-overlap]:not(:last-child) {
+    margin-block-end: calc(-1 * var(--scroll-panel-overlap));
+  }
+
+  [data-scroll-motion="on"] > .panel[data-panel-overlap]:not(:last-child)::after {
+    content: "";
+    display: block;
+    block-size: var(--scroll-panel-overlap);
+  }
+
+  [data-scroll-motion="on"] > .panel[data-panel-overlap]:not(:last-child) > * {
+    position: sticky;
+    inset-block-start: min(0px, 100svh - var(--scroll-panel-height, 100svh));
+  }
+
+  [data-scroll-motion="on"] > .panel[data-panel-overlap] + .panel > * {
+    background-color: var(--bg);
+    border-start-start-radius: var(--radius-lg);
+    border-start-end-radius: var(--radius-lg);
+  }
+}

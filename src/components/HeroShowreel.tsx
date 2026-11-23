@@ -1,82 +1,77 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useRef } from "react";
+import HeroIsotipo from "./HeroIsotipo";
 
 const SRC = "/video/showreel.mp4";
 const POSTER = "/video/showreel-poster.jpg";
+const PREVIEW_SECONDS = 4;
 
-/**
- * Showreel integrado al hero: sin marco ni controles. Los bordes se disuelven
- * en el fondo (máscara), reproduce en loop y en silencio. Al hacer click se
- * abre una vista ampliada con sonido y controles.
- */
 export default function HeroShowreel() {
   const inline = useRef<HTMLVideoElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const full = useRef<HTMLVideoElement>(null);
-  const [reduced, setReduced] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const previewVisible = useRef(false);
+
+  function playPreview() {
+    const video = inline.current;
+    if (!video || !previewVisible.current || video.currentTime >= PREVIEW_SECONDS || dialog.current?.open) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    void video.play().catch(() => {});
+  }
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => {
-      setReduced(mq.matches);
-      if (mq.matches) inline.current?.pause();
+    const video = inline.current;
+    if (!video) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncPreview = () => {
+      if (motion.matches) inline.current?.pause();
+      else playPreview();
     };
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
+    const observer = new IntersectionObserver(([entry]) => {
+      previewVisible.current = entry.isIntersecting;
+      if (previewVisible.current) syncPreview();
+      else video.pause();
+    }, { threshold: 0.5 });
+    observer.observe(video);
+    motion.addEventListener("change", syncPreview);
+    return () => {
+      observer.disconnect();
+      motion.removeEventListener("change", syncPreview);
+    };
   }, []);
 
-  const openFull = () => {
-    const d = dialog.current;
-    if (!d || d.open) return;
+  function openFull() {
+    const modal = dialog.current;
+    if (!modal || modal.open) return;
     inline.current?.pause();
-    d.showModal();
-    const v = full.current;
-    if (v) {
-      v.currentTime = 0;
-      v.muted = false;
-      void v.play().catch(() => {});
-    }
-  };
+    modal.showModal();
 
-  const onClose = () => {
+    const video = full.current;
+    if (!video) return;
+    video.currentTime = 0;
+    void video.play().catch(() => {});
+  }
+
+  function closeFull() {
     full.current?.pause();
-    if (!reduced) void inline.current?.play().catch(() => {});
-  };
+    trigger.current?.focus({ preventScroll: true });
+    playPreview();
+  }
 
   return (
-    <>
+    <div className="hero-showcase">
+      <HeroIsotipo />
       <button
+        ref={trigger}
         type="button"
         className="showreel"
         onClick={openFull}
         aria-label="Ver el showreel de ALTAB con sonido (15 segundos)"
+        aria-haspopup="dialog"
         data-cta="showreel_open"
       >
-        <Image
-          className="showreel-art"
-          src="/cintas-altab.webp"
-          alt=""
-          fill
-          sizes="(max-width: 900px) 94vw, 52vw"
-          preload
-        />
-        <span className="showreel-sweep" aria-hidden="true" />
-        <video
-          ref={inline}
-          className="showreel-video"
-          src={SRC}
-          poster={POSTER}
-          autoPlay={!reduced}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          tabIndex={-1}
-        />
         <span className="showreel-play">
           <span className="showreel-play-icon" aria-hidden="true">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -85,16 +80,38 @@ export default function HeroShowreel() {
           </span>
           <span className="mono showreel-play-label">Ver showreel · 0:15</span>
         </span>
+        <video
+          ref={inline}
+          className="showreel-video"
+          src={SRC}
+          poster={POSTER}
+          muted
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          tabIndex={-1}
+          onTimeUpdate={({ currentTarget }) => {
+            if (currentTarget.currentTime >= PREVIEW_SECONDS) currentTarget.pause();
+          }}
+        />
       </button>
 
-      <dialog ref={dialog} className="showreel-dialog" onClose={onClose} onClick={(e) => e.target === dialog.current && dialog.current?.close()}>
+      <dialog
+        ref={dialog}
+        className="showreel-dialog"
+        aria-label="Showreel de ALTAB"
+        onClose={closeFull}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) event.currentTarget.close();
+        }}
+      >
         <div className="showreel-dialog-inner">
-          <button type="button" className="showreel-close mono" onClick={() => dialog.current?.close()} aria-label="Cerrar showreel">
-            Cerrar ✕
+          <button type="button" className="showreel-close mono" onClick={() => dialog.current?.close()} aria-label="Cerrar showreel" autoFocus>
+            Cerrar ×
           </button>
-          <video ref={full} src={SRC} poster={POSTER} controls playsInline preload="none" />
+          <video ref={full} src={SRC} poster={POSTER} controls playsInline preload="none" aria-label="Video de presentación de ALTAB" />
         </div>
       </dialog>
-    </>
+    </div>
   );
 }

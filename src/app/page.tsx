@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Stage from "@/components/Stage";
@@ -12,7 +13,26 @@ import Footer from "@/components/Footer";
 import RevealProvider from "@/components/RevealProvider";
 import ScrollProgress from "@/components/ScrollProgress";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SmoothScroll, { ScrollPanel } from "@/components/ui/smooth-scroll";
 import "./landing.css";
+import { siteDescription, siteTitle, siteUrl } from "./site-metadata";
+
+export const metadata: Metadata = {
+  alternates: siteUrl ? { canonical: "/" } : undefined,
+  openGraph: {
+    type: "website",
+    siteName: "ALTAB",
+    title: siteTitle,
+    description: siteDescription,
+    locale: "es_AR",
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+};
 
 export default function Page() {
   return (
@@ -23,18 +43,19 @@ export default function Page() {
       <ScrollProgress />
 
       <div className="page altab-landing">
+        <a className="landing-skip" href="#contenido-principal">Saltar al contenido</a>
         <Nav />
-        <main>
-          <Hero />
-          <Stage />
-          <HowWeWork />
-          <Projects />
-          <Methodology />
-          <Results />
-          <Faq />
-          <FinalCta />
-          <Contact />
-        </main>
+        <SmoothScroll id="contenido-principal" tabIndex={-1}>
+          <ScrollPanel id="top" tabIndex={-1} overlap={false}><Hero /></ScrollPanel>
+          <ScrollPanel overlap={false}><Stage /></ScrollPanel>
+          <ScrollPanel id="soluciones"><HowWeWork /></ScrollPanel>
+          <ScrollPanel id="proyectos"><Projects /></ScrollPanel>
+          <ScrollPanel id="metodologia"><Methodology /></ScrollPanel>
+          <ScrollPanel><Results /></ScrollPanel>
+          <ScrollPanel id="faq"><Faq /></ScrollPanel>
+          <ScrollPanel><FinalCta /></ScrollPanel>
+          <ScrollPanel id="contacto"><Contact /></ScrollPanel>
+        </SmoothScroll>
         <Footer />
       </div>
 

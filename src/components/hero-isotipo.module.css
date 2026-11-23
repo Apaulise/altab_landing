@@ -1,0 +1,60 @@
+.stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(32px, 5vw, 80px) 5% clamp(46px, 6vw, 92px);
+}
+
+.mark {
+  position: relative;
+  width: min(100%, 34rem);
+  aspect-ratio: 378 / 235;
+  isolation: isolate;
+  background: url("/altab-simbolo-metal.svg") center / contain no-repeat;
+  filter: drop-shadow(0 20px 24px #100d0866);
+}
+
+.metal {
+  position: absolute;
+  inset: 0;
+  mask: url("/altab-simbolo-metal.svg") center / contain no-repeat;
+  mix-blend-mode: soft-light;
+  opacity: .9;
+  pointer-events: none;
+}
+
+.metal canvas { display: block; }
+
+.motionControl {
+  position: absolute;
+  inset: auto 0 6px auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--signal-text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.motionControl:hover {
+  border-color: var(--line-strong);
+  background: #ffffff08;
+}
+
+.motionControl:focus-visible {
+  outline: 2px solid var(--signal-text);
+  outline-offset: -2px;
+}
+
+@media (max-width: 900px) {
+  .stage { padding-block: 0 42px; }
+  .mark { width: min(90%, 27rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metal, .motionControl { display: none; }
+}

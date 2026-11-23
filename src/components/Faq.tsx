@@ -19,7 +19,7 @@ export default function Faq() {
   const panels = useRef<(HTMLDivElement | null)[]>([]);
 
   return (
-    <section id="faq" className="section">
+    <section className="section">
       <div className="wrap-narrow">
         <div style={{ marginBottom: "clamp(44px,6vw,72px)" }}>
           <div data-reveal="fade" className="eyebrow" style={{ marginBottom: 26 }}>
